@@ -38,4 +38,3 @@ function solve(nums) {
 }
 
 console.log(solve([-4, 1, 8, -5, 4, -8]));
-console.log("hello");
