@@ -11,6 +11,8 @@
 // Explanation
 
 // We can take the substring "ooba" and change 'b' to 'p' and 'a' to 's'
+
+//Brute force solution O(n^2)
 function solve(s, t) {
 	let diff = s.length - t.length;
 	let min = t.length;
