@@ -25,4 +25,4 @@ function solve(nums) {
 }
 let nums = [1, 800, 2, 10, 3];
 console.log(solve(nums));
-//except 4
+//expects 4
