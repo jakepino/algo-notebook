@@ -39,3 +39,23 @@ function solve2(nums) {
 	return new Set(nums).size;
 }
 console.log(solve2(nums));
+
+//method 3 using hash:
+function solve3(nums) {
+	let freq = {};
+	nums.forEach((num) => {
+		if (freq[num]) {
+			freq[num]++;
+		} else {
+			freq[num] = 1;
+		}
+	});
+	return (
+		nums.length -
+		Object.values(freq)
+			.filter((item) => item > 1)
+			.reduce((accum, val) => accum + val - 1, 0)
+	);
+}
+
+console.log(solve3(nums));
