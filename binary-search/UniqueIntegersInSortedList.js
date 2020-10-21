@@ -18,7 +18,7 @@
 // The unique numbers are [2, 3, 4, 6]
 
 // method 1:
-function solve(nums) {
+function solve1(nums) {
 	let uniq = {};
 	let counter = 0;
 
@@ -32,4 +32,10 @@ function solve(nums) {
 }
 
 let nums = [2, 2, 2, 3, 4, 6, 6];
-console.log(solve(nums));
+console.log(solve1(nums));
+
+// method 2 using Set:
+function solve2(nums) {
+	return new Set(nums).size;
+}
+console.log(solve2(nums));
