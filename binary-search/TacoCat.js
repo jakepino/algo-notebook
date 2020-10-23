@@ -24,3 +24,16 @@
 // Output
 
 // false
+
+//solution:
+function solve(s) {
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] !== s[s.length - i - 1]) {
+			console.log(s[s.length - i]);
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log(solve("tacocat"));
