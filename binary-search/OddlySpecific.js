@@ -21,3 +21,5 @@ function solve(n) {
 
 console.log(solve(5));
 //returns 25
+
+// the sum of all odd numbers of n number of odd numbers equal to number squared
