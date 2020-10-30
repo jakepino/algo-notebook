@@ -30,3 +30,4 @@ function solve(s, t) {
 	return min;
 }
 console.log(solve("foobar", "oops"));
+// returns 2
