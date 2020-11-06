@@ -22,3 +22,15 @@
 
 // 2
 //
+
+function solve(nums) {
+	let checked = {};
+	for (let i = 0; i < nums.length; i++) {
+		if (checked[nums[i]]) {
+			return nums[i];
+		} else {
+			checked[nums[i]] = nums[i];
+		}
+	}
+}
+console.log(solve([1, 2, 3, 1]));
