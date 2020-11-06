@@ -15,7 +15,7 @@ function solve(n) {
 	let arr = [];
 	for (let i = 1; i <= n; i++) {
 		if (i % 3 === 0 && i % 5 === 0) {
-			arr.push("FizBuzz);
+			arr.push("FizBuzz");
 		} else if (i % 5 === 0) {
 			arr.push("Buzz");
 		} else if (i % 3 === 0) {
@@ -26,3 +26,4 @@ function solve(n) {
 	}
 	return arr;
 }
+console.log(solve(15));
