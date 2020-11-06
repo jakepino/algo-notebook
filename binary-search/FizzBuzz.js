@@ -9,3 +9,20 @@
 // Output
 
 // ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]
+
+// Solution
+function solve(n) {
+	let arr = [];
+	for (let i = 1; i <= n; i++) {
+		if (i % 3 === 0 && i % 5 === 0) {
+			arr.push("FizBuzz);
+		} else if (i % 5 === 0) {
+			arr.push("Buzz");
+		} else if (i % 3 === 0) {
+			arr.push("Fizz");
+		} else {
+			arr.push(i.toString());
+		}
+	}
+	return arr;
+}
