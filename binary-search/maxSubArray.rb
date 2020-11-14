@@ -40,5 +40,7 @@ def max_sub_array(nums)
       i +=1
     end
     
-    maxSoFar
+    puts maxSoFar
   end
+
+max_sub_array([-2,1,-3,4,-1,2,1,-5,4])
