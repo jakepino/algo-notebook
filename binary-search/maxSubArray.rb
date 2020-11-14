@@ -25,3 +25,20 @@
 
 # Input: nums = [-2147483647]
 # Output: -2147483647
+# solution
+def max_sub_array(nums)
+  
+    maxSoFar = nums[0];
+    maxEndingHere = nums[0];
+    i = 1
+    
+    while i < nums.length
+      
+      maxEndingHere = [maxEndingHere + nums[i], nums[i]].max;
+      maxSoFar = [maxSoFar, maxEndingHere].max;
+      
+      i +=1
+    end
+    
+    maxSoFar
+  end
