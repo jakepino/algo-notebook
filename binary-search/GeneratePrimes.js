@@ -25,3 +25,22 @@
 // Output
 
 // [2, 3, 5, 7, 11, 13, 17, 19]
+
+// solution
+function solve(n) {
+       let primes = []
+       
+       for(let i = 2; i <= n; i++){
+          primes.push(i)
+            for (let k = 2; k <= primes.length; k++){
+                if(i % k === 0){
+                    primes.pop(i)
+                    break
+                }
+        }
+       }
+       return primes
+ }
+
+
+console.log(solve([10]))
