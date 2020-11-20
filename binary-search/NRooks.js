@@ -39,3 +39,14 @@
 // O O X
 // X O O
 // O X O
+function solve(n) {
+
+    let num = 1
+    for (let i = 1; i <= n; i++) {
+        num *= i
+    }
+
+    return num
+}
+
+console.log(solve(3))
