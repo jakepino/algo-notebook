@@ -39,3 +39,8 @@
 // Output
 
 // [1]
+function solve(nums, k) {
+    return nums.slice(k).concat(nums.slice(0, k))
+}
+
+console.log(solve([1,2,3,4,5,6], 2))
