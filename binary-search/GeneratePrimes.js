@@ -28,16 +28,22 @@
 
 // solution
 function solve(n) {
-       let primes = []
+      
+    let primes = []
        
        for(let i = 2; i <= n; i++){
-          primes.push(i)
-            for (let k = 2; k <= primes.length; k++){
+         
+        primes.push(i)
+            
+          for (let k = 2; k <= primes.length; k++){
+                
                 if(i % k === 0){
+                    
                     primes.pop(i)
                     break
                 }
         }
+
        }
        return primes
  }
