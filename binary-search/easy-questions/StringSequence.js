@@ -42,3 +42,16 @@
 // n = 4
 // Output
 // "aadxadx"
+function solve(s0, s1, n) {
+        
+    let A = [s0,s1]
+    
+    for (let i = 2; i <= n; i++){
+         if (i % 2 === 0){   
+            A[i] = A[i - 1] + A[i - 2]
+         } else {
+            A[i] = A[i-2] + A[i -1]
+        }
+    }
+    return A[n]
+}
