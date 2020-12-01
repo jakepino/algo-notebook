@@ -19,7 +19,7 @@
 // ]
 // Output
 // 35
-solve(matrix) {
+function solve(matrix) {
     let n = matrix.length - 1
     let sum = 0
     for(let i = 0; i < matrix.length; i++){
