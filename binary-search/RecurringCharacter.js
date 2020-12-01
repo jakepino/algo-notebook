@@ -24,3 +24,16 @@
 // 1
 // Explanation
 // We want the first recurring character.
+function solve(s) {
+    let index = -1
+    const dict = {}
+    for(let i = 0; i < s.length; i++){
+        if(dict[s[i]] === 1){
+            index = i
+            return index
+        } else {
+            dict[s[i]] = 1
+        }
+    }
+    return index
+}
