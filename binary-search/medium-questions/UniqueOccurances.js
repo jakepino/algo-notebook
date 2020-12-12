@@ -53,3 +53,19 @@ function solve(nums) {
         }
         return true
     }
+
+   function solve2(nums) {
+    let checker = {}
+    for (let i = 0; i < nums.length; i++) {
+        if (checker[nums[i]]){
+            checker[nums[i]]++
+        }
+        else {
+            checker[nums[i]] = 1
+        }
+    }
+    
+    let setCheck = new Set(Object.values(checker))
+    
+    return setCheck.size === Object.values(checker).length
+}
