@@ -20,6 +20,7 @@
 // true
 // Explanation
 // 2^1 = 2
+
 class Solution {
     solve(n) {
         return Math.log2(n) % 1 === 0
