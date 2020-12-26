@@ -12,3 +12,22 @@
 // false
 // Explanation
 // This sentence is missing a "z"
+class Solution {
+    solve(s) {
+    
+        let map = {}
+        let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    
+        for (let letter of s.toLowerCase()) {
+            if (alphabet.includes(letter)) {
+                map[letter] += 1
+            }
+    
+        }
+        if (Object.keys(map).length === 26) {
+            return true
+        } else {
+            return false
+        }
+    }
+    }
