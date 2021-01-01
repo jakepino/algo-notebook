@@ -11,3 +11,14 @@
 // "YXYX"
 // Explanation
 // One solution is to delete the first two "Y"s and the last "X".
+class Solution {
+    solve(s) {
+        let newArr = []
+        for(let i = 0; i < s.length; i ++){
+            if(s[i] !== s[i+1]){
+                newArr.push(s[i])
+            }
+        }
+        return newArr.join("")
+    }
+}
