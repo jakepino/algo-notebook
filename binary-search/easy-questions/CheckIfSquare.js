@@ -11,8 +11,8 @@
 // Output
 // true
 // Explanation
-
-function solve(n) {
+class Solution {
+    solve(n) {
         let k = 0
         while(k*k <= n){
             if(k*k === n){
@@ -22,6 +22,7 @@ function solve(n) {
             }
         }
         return false
+    }
 }
-
-console.log(solve(25))
+let newSolution = new Solution
+console.log(newSolution.solve(25))
