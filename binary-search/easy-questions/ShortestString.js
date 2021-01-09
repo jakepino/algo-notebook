@@ -12,3 +12,18 @@
 // 1
 // Explanation
 // After deleting "10" we get "100" and we can delete another "10" to get "0" which has a length of 1.
+class Solution {
+    solve(s) {
+        let ones = 0
+        let zeros = 0
+      
+        for(let i = 0; i < s.length; i++){
+            if(s[i] === "1"){
+                ones++
+            } else {
+                zeros++
+            }
+        }
+        return Math.abs(ones - zeros)
+    }
+}
