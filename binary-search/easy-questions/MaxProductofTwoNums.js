@@ -26,31 +26,13 @@
 // 35
 // Explanation
 // 35 is the largest product that can be made from -5 * -7.
-// solution 1
-// class Solution {
-//     solve(nums) {
-//         let n = nums.length
-//         let max = 0
-//         let sortedArray = nums.sort((a, b) => a - b)
-        
-//         max = Math.max(nums[0] * nums[1], nums[n-1] * nums[n-2])
-//         return max
-//     }
-// }
 class Solution {
-    solve(nums){
-        let maxPos1 = 0
-        let maxPos2 = 0
-        let maxNeg1 = 0
-        let maxNeg2 = 0
+    solve(nums) {
+        let n = nums.length
+        let max = 0
+        let sortedArray = nums.sort((a, b) => a - b)
         
-        for(let i = 0; i < nums.length; i++){
-            if(maxPos1 < nums[i]){
-                maxPos1 = nums[i]
-            } 
-            if(maxPos2 < nums[i+1]){
-                maxPos2 = nums[i+1]
-            }
-        }
+        max = Math.max(nums[0] * nums[1], nums[n-1] * nums[n-2])
+        return max
     }
 }
