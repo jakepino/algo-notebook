@@ -16,3 +16,19 @@
 // 3, 6, 9, 12, and 15 are replaced by "clap" since they are divisible by 3.
 // 13 is replaced since it has a 3 in the number.
 // 16 is replaced since it has a 6 in the number.
+class Solution {
+    solve(n) {
+        let array = [1]
+        for(let i = 1; i <= n; i++){
+            array.push(i.toString())
+            if(array[i].includes(3) || 
+                array[i].includes(6) ||
+                array[i].includes(9) ||
+                array[i] % 3 === 0){
+                    array[i] = "clap"
+            }
+        }
+        array.shift()
+        return array
+    }
+}
