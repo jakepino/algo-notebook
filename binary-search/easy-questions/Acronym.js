@@ -14,3 +14,15 @@
 // s = "National Aeronautics and Space Administration"
 // Output
 // "NASA"
+class Solution {
+    solve(s) {
+        let word = s.split(" ")
+        let acr = []
+        for(let i = 0; i < word.length; i++){
+            word[i] !== "and" ?
+                acr.push(word[i][0]) :
+                null
+        }
+        return acr.join('').toUpperCase()
+    }
+}
