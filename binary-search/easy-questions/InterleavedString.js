@@ -17,3 +17,16 @@
 // s1 = "x"
 // Output
 // "axbc"
+
+class Solution {
+    solve(s0, s1) {
+        let length = Math.max(s0.length, s1.length)
+        let newString = ''
+        for(let i = 0; i < length; i++){
+            s0[i] ? newString += s0[i] : null
+            s1[i] ? newString += s1[i] : null
+            
+        }
+        return newString
+    }
+}
