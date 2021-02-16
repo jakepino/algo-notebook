@@ -31,65 +31,117 @@
 
 
 // One Solution, but times out on Leetcode
-var findNumOfValidWords = function(words, puzzles) {
-    // translate words to hashes
-    // translate puzzles to hashes w/ special first character
-    const allWords = [];
-    const allPuzzles = [];
-    for(let w of words){
-        allWords.push(translateWord(w));
-    }
-    for(let puzz of puzzles){
-        allPuzzles.push(translatePuzzle(puzz));
-    }
+// var findNumOfValidWords = function(words, puzzles) {
+//     // translate words to hashes
+//     // translate puzzles to hashes w/ special first character
+//     const allWords = [];
+//     const allPuzzles = [];
+//     for(let w of words){
+//         allWords.push(translateWord(w));
+//     }
+//     for(let puzz of puzzles){
+//         allPuzzles.push(translatePuzzle(puzz));
+//     }
     
-    const output = [];
-    for(let puzz of allPuzzles){
-        let count = 0;
-        for(let w of allWords){
-            count += isMatch(puzz, w);
+//     const output = [];
+//     for(let puzz of allPuzzles){
+//         let count = 0;
+//         for(let w of allWords){
+//             count += isMatch(puzz, w);
+//         }
+//         output.push(count);
+//     }
+//     return output;
+// };
+// //
+// //
+// //
+// function translateWord(word){
+//     const wordHash = {};
+//     for(let i = 0; i < word.length; i++){
+//         wordHash[word[i]] = 1;
+//     }
+//     return wordHash;
+// }
+// //
+// //
+// //
+// function translatePuzzle(puzzle){
+//     const puzzleHash = {
+//         initial: "",
+//         hash: {}
+//     };
+//     puzzleHash.initial = puzzle[0];
+//     for(let i = 0; i < puzzle.length; i++){
+//         puzzleHash.hash[puzzle[i]] = 1;
+//     }
+//     return puzzleHash;
+// }
+// //
+// //
+// //
+// function isMatch(puzzle, word){
+//     // return 1 if match, 0 if not
+//     if(word[puzzle.initial]){
+//         const letters = Object.keys(word);
+//         for(let l of letters){
+//             if(!puzzle.hash[l]){
+//                 return 0;
+//             }
+//         }
+//         return 1;
+//     }
+//     return 0;
+// }
+
+// solution using bitmasking
+var findNumOfValidWords = function(words, puzzles) {
+    let base = "a".charCodeAt();
+    let afterwords = [];
+    words.forEach(x => {
+      let bit = 0, lenChecker = [], pass = false;
+      for(let i = 0; i < x.length; i++){
+        if(lenChecker.indexOf(x[i]) < 0){
+          lenChecker.push(x[i]);
+          if(lenChecker.length > 7){ 
+            pass = true;
+            i = x.length;
+          } else {
+            bit |= 1 << (x[i].charCodeAt() - base);
+          }
         }
-        output.push(count);
-    }
-    return output;
-};
-//
-//
-//
-function translateWord(word){
-    const wordHash = {};
-    for(let i = 0; i < word.length; i++){
-        wordHash[word[i]] = 1;
-    }
-    return wordHash;
-}
-//
-//
-//
-function translatePuzzle(puzzle){
-    const puzzleHash = {
-        initial: "",
-        hash: {}
-    };
-    puzzleHash.initial = puzzle[0];
-    for(let i = 0; i < puzzle.length; i++){
-        puzzleHash.hash[puzzle[i]] = 1;
-    }
-    return puzzleHash;
-}
-//
-//
-//
-function isMatch(puzzle, word){
-    // return 1 if match, 0 if not
-    if(word[puzzle.initial]){
-        const letters = Object.keys(word);
-        for(let l of letters){
-            if(!puzzle.hash[l]){
-                return 0;
-            }
-        }
-        return 1;
-    }
-    return 0;
-}
+      }
+  
+      if(!pass){
+        afterwords.push(bit);
+      }
+    });
+  
+    let res = [], pMemo = {};
+  
+    puzzles.forEach(puzzle => {
+      let count = 0;
+  
+      let first = 0;
+      first |= 1 << (puzzle[0].charCodeAt() - base);
+      let mybit = 0;
+      for(let i = 0; i < puzzle.length; i++){
+        mybit |= 1 << (puzzle[i].charCodeAt() - base);
+      }
+  
+      if(pMemo[[puzzle[0], mybit].join(",")]){
+        res.push(pMemo[[puzzle[0], mybit].join(",")]);
+      } else {
+        afterwords.forEach(wordBit => {
+          if((wordBit & first) == first && (mybit & wordBit) == wordBit ){
+            count++;
+          }
+        });
+    
+        pMemo[[puzzle[0], mybit].join(",")] = count;
+        res.push(count);
+      }
+    });
+  
+    return res;
+  };
