@@ -27,11 +27,12 @@ class Solution {
             return true
         }
         
-        let sorted = nums.sort((a, b) => a-b)
-        let diff = sorted[1] - sorted[0]
+        nums.sort((a, b) => a-b)
+        
+        let diff = nums[1] - nums[0]
 
-        for(let i = 1; i < sorted.length; i++){
-            if(diff != (sorted[i]-sorted[i-1])){
+        for(let i = 1; i < nums.length; i++){
+            if(diff != (nums[i]-nums[i-1])){
                 return false
             }
         }
