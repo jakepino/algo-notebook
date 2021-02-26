@@ -32,4 +32,4 @@ let counter = 0
 }
 
 game(arr)
-//===> 8
+//==> 8
