@@ -10,7 +10,6 @@
 class Solution {
     solve(words) {
         let string = ""
-        let counter = 0
         for(let i = 0; i < words[0].length; i++){
             let letter = words[0][i]
             for(let j = 0; j < words.length; j++){
