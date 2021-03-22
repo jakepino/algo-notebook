@@ -33,8 +33,8 @@ var isAnagram = function(s, t) {
         hash2[b] ? hash2[b]++ : hash2[b] = 1
     }
     
-    for(ele in hash1){
-        if(hash1[ele] !== hash2[ele]){
+    for(key in hash1){
+        if(hash1[key] !== hash2[key]){
             return false
         }
     }

@@ -22,7 +22,6 @@
     
 //     let keys = Object.keys(hash)
 //     let values = Object.values(hash)
-//     console.log(values)
 //     for(let i = 0; i < values.length; i++){
 //         if(values[i] === 1){
 //             let key = keys[i]
