@@ -19,20 +19,35 @@
 // 1 <= nums1.length, nums2.length <= 1000
 // 0 <= nums1[i], nums2[i] <= 1000
 
-var intersection = function(nums1, nums2) {
-    let results = []
-    let set = new Set()
+// var intersection = function(nums1, nums2) {
+//     let results = []
+//     let set = new Set()
     
-    for(let i = 0; i < nums2.length; i++){
-        set.add(nums2[i])
-    }
+//     for(let i = 0; i < nums2.length; i++){
+//         set.add(nums2[i])
+//     }
     
-    for(let i = 0; i < nums1.length; i++){
-        if(set.has(nums1[i])){
-            results.push(nums1[i])
-            set.delete(nums1[i])
+//     for(let i = 0; i < nums1.length; i++){
+//         if(set.has(nums1[i])){
+//             results.push(nums1[i])
+//             set.delete(nums1[i])
+//         }
+//     }
+    
+//     return results
+// };
+
+// FASTER SOLUTION
+var intersection = function (nums1, nums2) {
+    let set = new Set() 
+    shorterArr = (nums1.length < nums2.length) ? nums1 : nums2,
+    longerArr = (nums1.length > nums2.length) ? nums1 : nums2;
+    
+    shorterArr.forEach(num => {
+        if (longerArr.includes(num)) {
+            set.add(num);
         }
-    }
+    });
     
-    return results
+    return Array.from(set);
 };
