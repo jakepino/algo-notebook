@@ -29,10 +29,9 @@ class Solution {
         let newS = ""
         let counter = 1
         for(let i = 0; i < s.length; i++){
-            let temp = s[i]
-            if(s[i+1] === temp){
+            if(s[i+1] === s[i]){
                 counter++
-            } else if(s[i+1] !== temp){
+            } else if(s[i+1] !== s[i]){
                 newS += `${counter}` + `${s[i]}`
                 counter = 1
             }
