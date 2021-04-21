@@ -27,7 +27,7 @@ class Solution {
 
         for(let i = 0; i < length; i++){
             if(i % 2 === 1){
-                sorted.push(maxAsc[maxAsc.length-1])
+                sorted.push(maxAsc[maxAsc.length - 1])
                 maxAsc.pop()
             } else {
                 sorted.push(minAsc[minAsc.length - 1])
